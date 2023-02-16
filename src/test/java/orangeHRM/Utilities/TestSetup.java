@@ -1,8 +1,19 @@
 package orangeHRM.Utilities;
 
-import org.openqa.selenium.WebDriver;
+import orangeHRM.PageObjects.PageObjectManager;
+
+
+
 
 public class TestSetup {
-    public WebDriver driver;
 
+    public PageObjectManager pageObjectManager;
+    public TestBase testBase;
+    public GenericUtils genericUtils;
+
+    public TestSetup(){
+        testBase = new TestBase();
+        pageObjectManager = new PageObjectManager(testBase.WebDriverManager());
+        genericUtils = new GenericUtils(testBase.WebDriverManager());
+    }
 }
