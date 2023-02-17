@@ -11,13 +11,14 @@ import org.testng.Assert;
 public class DashboardStepDefination {
 
     TestSetup testSetup;
+    DashboardPage dashboardPage;
     public DashboardStepDefination(TestSetup testSetup){
         this.testSetup = testSetup;
+        dashboardPage = testSetup.pageObjectManager.getDashboardPage();
     }
     @Then("Login must be successfull")
     public void login_must_be_successfull() throws InterruptedException {
         Thread.sleep(2000);
-        DashboardPage dashboardPage = testSetup.pageObjectManager.getDashboardPage();
         WebElement ele = testSetup.genericUtils.getElement(dashboardPage.Dashboard);
         Assert.assertTrue(ele.isDisplayed(), "Login Successfull");
     }

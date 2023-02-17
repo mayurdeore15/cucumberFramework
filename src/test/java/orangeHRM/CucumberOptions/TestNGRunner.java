@@ -5,8 +5,11 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/java/orangeHRM/Features"},
-        glue = {"orangeHRM.Defination"}
+        features = {"src/test/java/orangeHRM/Features/Login.feature"},
+        glue = {"orangeHRM.Defination"},
+        dryRun = false,
+        tags = "@Login"
+
 )
 public class TestNGRunner extends AbstractTestNGCucumberTests {
 

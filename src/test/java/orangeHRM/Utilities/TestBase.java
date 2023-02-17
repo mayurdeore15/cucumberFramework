@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import java.io.FileInputStream;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class TestBase {
@@ -27,6 +28,7 @@ public class TestBase {
                 driver = new EdgeDriver();
             }
             driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.get(URL);
         }
         return driver;
