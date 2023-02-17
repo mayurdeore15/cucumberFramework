@@ -26,6 +26,7 @@ public class LoginStepDefination {
         testSetup.genericUtils.sendKeys(loginPage.password,password);
 
     }
+
     @When("User Click on LoginButton")
     public void user_click_on_login_button() throws InterruptedException {
         Thread.sleep(2000);
@@ -33,4 +34,7 @@ public class LoginStepDefination {
         testSetup.genericUtils.ClickElement(loginPage.LoginButton);
 
     }
+
+
+
 }
