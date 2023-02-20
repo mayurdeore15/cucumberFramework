@@ -8,7 +8,8 @@ import org.testng.annotations.DataProvider;
         features = {"src/test/java/orangeHRM/Features/Login.feature"},
         glue = {"orangeHRM.Defination"},
         dryRun = false,
-        tags = "@Login"
+        tags = "@Login",
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
 )
 public class TestNGRunner extends AbstractTestNGCucumberTests {
