@@ -5,13 +5,12 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/java/orangeHRM/Features/Login.feature"},
+        features = {"@target/failed_scenarios.txt"},
         glue = {"orangeHRM.Defination"},
         dryRun = false,
-        tags = "@Login",
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","rerun:target/failed_scenarios.txt"}
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )
-public class TestNGRunner extends AbstractTestNGCucumberTests {
+public class FailedTestNGRunner extends AbstractTestNGCucumberTests {
 
     @DataProvider(parallel = true)
     @Override

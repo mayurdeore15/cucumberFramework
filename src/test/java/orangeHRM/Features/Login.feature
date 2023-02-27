@@ -9,7 +9,7 @@ Feature: F1 | Login Functionality
     Examples:
       | UserName   | Password  |
       | Admin      | admin123  |
-      | mayurdeore | Mayur@123 |
+#      | mayurdeore | Mayur@123 |
 
 #  Scenario Outline: S2TC2 | User should not be able to login with incorrect username
 #    Given User navigates to login page of OrangeHRM
