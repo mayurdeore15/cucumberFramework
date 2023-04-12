@@ -18,12 +18,15 @@ public class TestBase {
         Properties prop = new Properties();
         prop.load(fis);
         String URL = prop.getProperty("URL");
+        String browser_properties = prop.getProperty("browser");
+        String browser_maven = System.getProperty("browser");
+        String browser = browser_maven != null? browser_maven : browser_properties;
 
         if(driver==null){
-            if(prop.getProperty("browser").equalsIgnoreCase("chrome")){
+            if(browser.equalsIgnoreCase("chrome")){
                 System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//src//test//resources//chromedriver.exe");
                 driver = new ChromeDriver();
-            } else if (prop.getProperty("browser").equalsIgnoreCase("msedge")){
+            } else if (browser.equalsIgnoreCase("msedge")){
                 System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"//src//test//resources//msedgedriver.exe");
                 driver = new EdgeDriver();
             }
