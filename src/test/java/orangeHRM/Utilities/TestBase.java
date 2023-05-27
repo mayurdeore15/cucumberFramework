@@ -14,9 +14,9 @@ public class TestBase {
     public WebDriver driver;
     public WebDriver WebDriverManager() throws IOException {
 
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//src//test//resources//global.properties");
+        FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"//src//test//resources//global.properties");
         Properties prop = new Properties();
-        prop.load(fis);
+        prop.load(file);
         String URL = prop.getProperty("URL");
         String browser_properties = prop.getProperty("browser");
         String browser_maven = System.getProperty("browser");

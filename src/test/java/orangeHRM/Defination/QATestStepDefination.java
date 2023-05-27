@@ -24,36 +24,29 @@ public class QATestStepDefination {
         Thread.sleep(3000);
         testSetup.genericUtils.ClickElement(qATestPage.DropDown);
     }
-    @When("user select drop down value as {string}")
-    public void user_select_drop_down_value_as(String Value) throws InterruptedException {
-        List<WebElement> allOptions = qATestPage.getSelects();
+    @When("user select {string} drop down value as {string}")
+    public void user_select_drop_down_value_as(String dropdownName,String Value) throws InterruptedException {
+        List<WebElement> allOptions = qATestPage.getSelects(dropdownName);
         // Iterate the list using for loop
-        for (int i = 0; i < allOptions.size(); i++) {
-            if (allOptions.get(i).getText().contains(Value)) {
-                allOptions.get(i).click();
-                System.out.println("clicked");
-                Thread.sleep(3000);
-                break;
+        for(WebElement ele:allOptions){
+            if(ele.getText().contains(Value)){
+                ele.click();
             }
-            System.out.println("no such element");
-        } Thread.sleep(3000);
+        }
+//        for (int i = 0; i < allOptions.size(); i++) {
+//            if (allOptions.get(i).getText().contains(Value)) {
+//                allOptions.get(i).click();
+//                System.out.println("clicked");
+//                Thread.sleep(3000);
+//                break;
+//            }
+//            System.out.println("no such element");
+//        } Thread.sleep(3000);
 
     }
     @Then("value should be selected")
     public void value_should_be_selected() {
 
     }
-//    protected List<WebElement> getWebElementsText(WebElement element) {
-//        List<WebElement> result = null;
-//        try {
-//            result = fluentWait.until(ExpectedConditions.visibilityOf(element))
-//                    .getText();
-//        }
-//        catch (Exception e) {
-//            log.info(String.format(EXCEPTION_LOG_BEGIN));
-//            log.error(String.format("%nFailed to get text for web element: [%s].", element), e);
-//            log.info(String.format(EXCEPTION_LOG_END));
-//        }
-//        return result;
-//    }
+
 }

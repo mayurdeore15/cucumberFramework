@@ -19,16 +19,37 @@ public class QATestPage {
     public By  DropDownValues = By.xpath("//select[@id='oldSelectMenu']/option");
 
     @FindBy(xpath = "//select[@id='oldSelectMenu']/option")
-    public List<WebElement> List;
+    public List<WebElement> List3;
+    @FindBy(xpath = "//select[@id='oldSelectMenu']/option")
+    public List<WebElement> List1;
+    @FindBy(xpath = "//select[@id='oldSelectMenu']/option")
+    public List<WebElement> List2;
 
-    public List<WebElement> getSelects(String dropdown) {
-//        if(dropdown.equalsIgnoreCase("program")){
-//            return List;
-//        }
-//        els
-//        return List;
-//        {
-//
-//        }
+    public List<WebElement> getSelects(String dropdownName) {
+        List<WebElement> List;
+        String name = dropdownName;
+        switch (name){
+            case "N1":
+                List = List1;
+                break;
+            case "N2":
+                List = List2;
+                break;
+            case "N3":
+                List = List3;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + name);
+        }
+        return List;
+//      if(dropdownName.equalsIgnoreCase("Program")){
+//          return List;
+//      }
+//      else if(dropdownName.equalsIgnoreCase("date")){
+//          return List1;
+//      }
+//      else {
+//          return List2;
+//      }
     }
 }
